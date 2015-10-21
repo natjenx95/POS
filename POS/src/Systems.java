@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cse216.unittest.hw;
+
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -14,7 +14,10 @@ import java.util.Scanner;
  * @author Emilio Arellano
  */
 public class Systems {
-     public static void run (Systems sys) {
+    private ProductCatalog catalog;
+    private Order order; 
+    
+    public static void run (Systems sys) {
           Scanner scan = new Scanner (System.in);
           System.out.println("Please enter the customer name");
           String name = scan.next();
@@ -59,6 +62,33 @@ public class Systems {
                Sale sales = new Sale (time, cart.get(i), temp);
                sales.print();
           }
+     }
+     
+     /**
+      * 
+      * @param upc of the item to be added to the  
+      */
+     public void enterItems(int upc){
+        if (catalog.upcs.contains(upc)) {
+            order.add(catalog.getItem(upc));
+        } 
+        else {
+            System.out.println("Input not recognized");
+            System.out.println("Please try again");
+        }
+     }
+     
+     /**
+      * 
+      * @param payment the amount given by the costumer to pay for the order
+      * @return the change for the costumer or what is still owed if payment 
+      * doesn't cover full price (negative number).
+      */
+     public double receivePayment(double payment){
+         if(payment > order.price()){
+             order.paid();
+         }
+         return payment - order.price();
      }
      
      public static void main (String [] args) {
