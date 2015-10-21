@@ -11,9 +11,11 @@ import java.util.ArrayList;
  *
  * @author Emilio Arellano
  */
-public class Return {
+public class Return extends Order{
     private ArrayList<Item> items;
     private CustomerClass customer;
+    private double price;
+    private boolean paid;
     
     public Return(CustomerClass customer){
         this.customer = customer;
@@ -52,5 +54,19 @@ public class Return {
      */
     public int calculateReturnPayment(){
         return 0;
+    }
+    
+    public void add(Item item){
+        items.add(item);
+    }
+
+    @Override
+    public double price() {
+        return price;
+    }
+
+    @Override
+    public void paid() {
+        paid = true;
     }
 }
