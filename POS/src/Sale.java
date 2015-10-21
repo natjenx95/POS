@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cse216.unittest.hw;
+
 
 /**
  *
@@ -13,6 +13,7 @@ public class Sale {
      private String dateTime;
      private Item prod;
      private CustomerClass dood;
+     
      
      public Sale (String dateTime, Item prod, CustomerClass dood) {
           this.dateTime = dateTime;
