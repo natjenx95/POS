@@ -1,0 +1,31 @@
+public class Rental {
+     private String dateTime;
+     private String dueDate;
+     private String returnDate;
+     private Item prod;
+     private CustomerClass dood;
+     
+     
+     
+     public Sale (String dateTime, String dueDate, Item prod, CustomerClass dood) {
+          this.dateTime = dateTime;
+          this.prod = prod;
+          this.dood = dood;
+          this.dueDate = dueDate;
+     }
+     
+     public void makeReturned() {
+    	 // make Item an abstract class, with RentalItem and SaleItem,
+    	 // give RentalItem a boolean isReturned
+    	 // set to true;
+    	 // set returnDate to current Date
+    	 
+     }
+     public void print () {
+          System.out.print("Date: " +dateTime+ " Product: ");
+          prod.pprint();
+          System.out.print("Customer: ");
+          dood.cprint();
+          System.out.println();
+     }
+}
